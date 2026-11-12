@@ -1,0 +1,458 @@
+{
+ "version": 1,
+ "workflows": [
+  {
+   "id": "krea2-imagen",
+   "n": "01",
+   "name": "Generación de imágenes · Krea 2",
+   "module": "Módulo 06",
+   "description": "Modelo Krea 2 Turbo con su codificador de texto y VAE, escalado 4x, detección de rostro para la mejora de cara y los nodos que necesita el flujo.",
+   "files": [
+    {
+     "name": "krea2_turbo_fp8_scaled.safetensors",
+     "dir": "diffusion_models",
+     "size_gb": 13.1,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen3vl_4b_fp8_scaled.safetensors",
+     "dir": "text_encoders",
+     "size_gb": 5.24,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen_image_vae.safetensors",
+     "dir": "vae",
+     "size_gb": 0.25,
+     "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors"
+    },
+    {
+     "name": "4xNMKDSuperscale_4xNMKDSuperscale.pt",
+     "dir": "upscale_models",
+     "size_gb": 0.07,
+     "url": "https://huggingface.co/Tenofas/ComfyUI/resolve/main/upscale_models/4xNMKDSuperscale_4xNMKDSuperscale.pt"
+    },
+    {
+     "name": "face_yolov8m.pt",
+     "dir": "ultralytics/bbox",
+     "size_gb": 0.05,
+     "url": "https://huggingface.co/Bingsu/adetailer/resolve/main/face_yolov8m.pt"
+    },
+    {
+     "name": "sam_vit_b_01ec64.pth",
+     "dir": "sams",
+     "size_gb": 0.38,
+     "url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth"
+    }
+   ],
+   "nodes": [
+    {
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+     "name": "ComfyUI-Impact-Subpack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
+    },
+    {
+     "name": "rgthree-comfy",
+     "repo": "https://github.com/rgthree/rgthree-comfy"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
+    },
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    }
+   ]
+  },
+  {
+   "id": "krea2-edicion",
+   "n": "02",
+   "name": "Edición de imágenes · Krea 2",
+   "module": "Módulo 07",
+   "description": "Cambia fondos, ropa, detalles y composición de una imagen manteniendo a la misma persona. Comparte modelos con el flujo de imágenes: si ya lo tienes, solo descarga la LoRA de edición.",
+   "files": [
+    {
+     "name": "krea2_turbo_fp8_scaled.safetensors",
+     "dir": "diffusion_models",
+     "size_gb": 13.1,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen3vl_4b_fp8_scaled.safetensors",
+     "dir": "text_encoders",
+     "size_gb": 5.24,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen_image_vae.safetensors",
+     "dir": "vae",
+     "size_gb": 0.25,
+     "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors"
+    },
+    {
+     "name": "krea2_identity_edit_v1_2.safetensors",
+     "dir": "loras",
+     "size_gb": 1.83,
+     "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+    }
+   ],
+   "nodes": [
+    {
+     "name": "comfyui-krea2edit",
+     "repo": "https://github.com/lbouaraba/comfyui-krea2edit"
+    },
+    {
+     "name": "ComfyUI_Comfyroll_CustomNodes",
+     "repo": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
+    },
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    }
+   ]
+  },
+  {
+   "id": "krea2-carrusel",
+   "n": "03",
+   "name": "Carruseles · Krea 2",
+   "module": "Módulo 08",
+   "description": "Convierte una imagen en un carrusel de varias fotos manteniendo personaje, fondo y ambiente. Usa los mismos modelos que el flujo de edición: si ya lo tienes, no descarga nada nuevo.",
+   "files": [
+    {
+     "name": "krea2_turbo_fp8_scaled.safetensors",
+     "dir": "diffusion_models",
+     "size_gb": 13.1,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen3vl_4b_fp8_scaled.safetensors",
+     "dir": "text_encoders",
+     "size_gb": 5.24,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen_image_vae.safetensors",
+     "dir": "vae",
+     "size_gb": 0.25,
+     "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors"
+    },
+    {
+     "name": "krea2_identity_edit_v1_2.safetensors",
+     "dir": "loras",
+     "size_gb": 1.83,
+     "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+    }
+   ],
+   "nodes": [
+    {
+     "name": "comfyui-krea2edit",
+     "repo": "https://github.com/lbouaraba/comfyui-krea2edit"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
+    },
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    }
+   ]
+  },
+  {
+   "id": "krea2-dataset",
+   "n": "04",
+   "name": "Conjunto de datos · Krea 2",
+   "module": "Módulo 09",
+   "description": "Genera el conjunto de imágenes para entrenar la LoRA de tu personaje a partir de una sola foto de referencia. Usa los mismos modelos y nodos que el flujo de edición.",
+   "files": [
+    {
+     "name": "krea2_turbo_fp8_scaled.safetensors",
+     "dir": "diffusion_models",
+     "size_gb": 13.1,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen3vl_4b_fp8_scaled.safetensors",
+     "dir": "text_encoders",
+     "size_gb": 5.24,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen_image_vae.safetensors",
+     "dir": "vae",
+     "size_gb": 0.25,
+     "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors"
+    },
+    {
+     "name": "krea2_identity_edit_v1_2.safetensors",
+     "dir": "loras",
+     "size_gb": 1.83,
+     "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+    }
+   ],
+   "nodes": [
+    {
+     "name": "comfyui-krea2edit",
+     "repo": "https://github.com/lbouaraba/comfyui-krea2edit"
+    },
+    {
+     "name": "ComfyUI_Comfyroll_CustomNodes",
+     "repo": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
+    },
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    }
+   ]
+  },
+  {
+   "id": "krea2-lora-test",
+   "n": "05",
+   "name": "Prueba de LoRA · Krea 2",
+   "module": "Módulo 10",
+   "description": "Compara los checkpoints de tu LoRA con el modelo Krea 2.",
+   "files": [
+    {
+     "name": "krea2_turbo_fp8_scaled.safetensors",
+     "dir": "diffusion_models",
+     "size_gb": 13.1,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen3vl_4b_fp8_scaled.safetensors",
+     "dir": "text_encoders",
+     "size_gb": 5.24,
+     "url": "https://huggingface.co/Comfy-Org/Krea-2/resolve/main/text_encoders/qwen3vl_4b_fp8_scaled.safetensors"
+    },
+    {
+     "name": "qwen_image_vae.safetensors",
+     "dir": "vae",
+     "size_gb": 0.25,
+     "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors"
+    }
+   ],
+   "nodes": [
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    }
+   ]
+  },
+  {
+   "id": "scail-movimiento",
+   "n": "06",
+   "name": "Control de movimiento · SCAIL 2",
+   "module": "Módulo 11",
+   "description": "Transfiere el movimiento de un vídeo a tu modelo con SCAIL 2 (Wan 2.1 14B).",
+   "files": [
+    {
+     "name": "wan2.1_14B_SCAIL_2_fp16.safetensors",
+     "dir": "diffusion_models",
+     "size_gb": 32.8,
+     "url": "https://huggingface.co/Comfy-Org/SCAIL-2/resolve/main/diffusion_models/wan2.1_14B_SCAIL_2_fp16.safetensors"
+    },
+    {
+     "name": "umt5-xxl-encoder-fp8-e4m3fn-scaled.safetensors",
+     "dir": "text_encoders",
+     "size_gb": 6.74,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+    },
+    {
+     "name": "clip_vision_h.safetensors",
+     "dir": "clip_vision",
+     "size_gb": 1.26,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors"
+    },
+    {
+     "name": "wan_2.1_vae.safetensors",
+     "dir": "vae",
+     "size_gb": 0.25,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors"
+    },
+    {
+     "name": "sam3.1_multiplex_fp16.safetensors",
+     "dir": "checkpoints",
+     "size_gb": 1.75,
+     "url": "https://huggingface.co/Comfy-Org/sam3.1/resolve/main/checkpoints/sam3.1_multiplex_fp16.safetensors"
+    },
+    {
+     "name": "wan2.1_SCAIL_2_DPO_lora_bf16.safetensors",
+     "dir": "loras",
+     "size_gb": 0.6,
+     "url": "https://huggingface.co/Comfy-Org/SCAIL-2/resolve/main/loras/wan2.1_SCAIL_2_DPO_lora_bf16.safetensors"
+    },
+    {
+     "name": "wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors",
+     "dir": "loras",
+     "size_gb": 0.74,
+     "url": "https://huggingface.co/lightx2v/Wan2.2-Distill-Loras/resolve/main/wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors"
+    }
+   ],
+   "nodes": [
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    },
+    {
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+     "name": "ComfyUI-VideoHelperSuite",
+     "repo": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    },
+    {
+     "name": "ComfyUI-Easy-Use",
+     "repo": "https://github.com/yolain/ComfyUI-Easy-Use"
+    },
+    {
+     "name": "ComfyUI-Logic",
+     "repo": "https://github.com/theUndefined/ComfyUI-Logic"
+    },
+    {
+     "name": "ComfyUI-Custom-Scripts",
+     "repo": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    },
+    {
+     "name": "ComfyUI_Nvidia_VFX_Nodes",
+     "repo": "https://github.com/Comfy-Org/ComfyUI_Nvidia_VFX_Nodes"
+    }
+   ]
+  },
+  {
+   "id": "god-edition",
+   "n": "07",
+   "name": "Control de movimiento · GOD Edition",
+   "module": "Módulo 12",
+   "description": "Wan 2.2 Animate con pre y posprocesado para máximo realismo, piel y sincronización labial.",
+   "files": [
+    {
+     "name": "wan2.2_animate_14B_bf16.safetensors",
+     "dir": "diffusion_models",
+     "size_gb": 32.8,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/diffusion_models/wan2.2_animate_14B_bf16.safetensors"
+    },
+    {
+     "name": "umt5_xxl_fp16.safetensors",
+     "dir": "text_encoders",
+     "size_gb": 11.4,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp16.safetensors"
+    },
+    {
+     "name": "clip_vision_h.safetensors",
+     "dir": "clip_vision",
+     "size_gb": 1.26,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors"
+    },
+    {
+     "name": "Wan2_1_VAE_bf16.safetensors",
+     "dir": "vae",
+     "size_gb": 0.25,
+     "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Wan2_1_VAE_bf16.safetensors"
+    },
+    {
+     "name": "vitpose_h_wholebody_model.onnx",
+     "dir": "detection",
+     "size_gb": 0.01,
+     "url": "https://huggingface.co/Kijai/vitpose_comfy/resolve/main/onnx/vitpose_h_wholebody_model.onnx"
+    },
+    {
+     "name": "vitpose_h_wholebody_data.bin",
+     "dir": "detection",
+     "size_gb": 2.55,
+     "url": "https://huggingface.co/Kijai/vitpose_comfy/resolve/main/onnx/vitpose_h_wholebody_data.bin"
+    },
+    {
+     "name": "yolov10m.onnx",
+     "dir": "detection",
+     "size_gb": 0.06,
+     "url": "https://huggingface.co/Wan-AI/Wan2.2-Animate-14B/resolve/main/process_checkpoint/det/yolov10m.onnx"
+    },
+    {
+     "name": "wan2.2_animate_14B_relight_lora_bf16.safetensors",
+     "dir": "loras",
+     "size_gb": 1.44,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_animate_14B_relight_lora_bf16.safetensors"
+    },
+    {
+     "name": "lightx2v_T2V_14B_cfg_step_distill_v2_lora_rank256_bf16.safetensors",
+     "dir": "loras",
+     "size_gb": 2.5,
+     "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Lightx2v/lightx2v_T2V_14B_cfg_step_distill_v2_lora_rank256_bf16.safetensors"
+    },
+    {
+     "name": "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
+     "dir": "loras",
+     "size_gb": 1.23,
+     "url": "https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/resolve/main/split_files/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors"
+    },
+    {
+     "name": "Wan21_PusaV1_LoRA_14B_rank512_bf16.safetensors",
+     "dir": "loras",
+     "size_gb": 4.9,
+     "url": "https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/Pusa/Wan21_PusaV1_LoRA_14B_rank512_bf16.safetensors"
+    },
+    {
+     "name": "Wan2.2-Fun-A14B-InP-low-noise-MPS.safetensors",
+     "dir": "loras",
+     "size_gb": 0.6,
+     "url": "https://huggingface.co/alibaba-pai/Wan2.2-Fun-Reward-LoRAs/resolve/main/Wan2.2-Fun-A14B-InP-low-noise-MPS.safetensors"
+    }
+   ],
+   "nodes": [
+    {
+     "name": "ComfyUI-WanVideoWrapper",
+     "repo": "https://github.com/kijai/ComfyUI-WanVideoWrapper"
+    },
+    {
+     "name": "ComfyUI-WanAnimatePreprocess",
+     "repo": "https://github.com/kijai/ComfyUI-WanAnimatePreprocess"
+    },
+    {
+     "name": "ComfyUI-segment-anything-2",
+     "repo": "https://github.com/kijai/ComfyUI-segment-anything-2"
+    },
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    },
+    {
+     "name": "ComfyUI-VideoHelperSuite",
+     "repo": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
+    },
+    {
+     "name": "ComfyUI-Easy-Use",
+     "repo": "https://github.com/yolain/ComfyUI-Easy-Use"
+    },
+    {
+     "name": "ComfyUI-Frame-Interpolation",
+     "repo": "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
+    },
+    {
+     "name": "rgthree-comfy",
+     "repo": "https://github.com/rgthree/rgthree-comfy"
+    },
+    {
+     "name": "ComfyMath",
+     "repo": "https://github.com/evanspearman/ComfyMath"
+    },
+    {
+     "name": "ComfyUI-Custom-Scripts",
+     "repo": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    }
+   ]
+  }
+ ]
+}

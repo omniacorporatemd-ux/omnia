@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Omnia · Lanzador de flujos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --ink:#121212; --muted:#6B6B6B; --line:#E5E5E5; --neon:#E6FF00; --blue:#3A12FF; --soft:#FAFAFA; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Poppins, system-ui, sans-serif; color:var(--ink); background:#FFFFFF; }
+  header { height:64px; padding:0 24px; border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:16px; }
+  .logo { font-weight:700; font-size:22px; letter-spacing:-0.02em; }
+  .logo small { font-weight:500; font-size:13px; color:var(--muted); margin-left:10px; letter-spacing:0; }
+  main { max-width:1120px; margin:0 auto; padding:40px 24px 64px; display:flex; flex-direction:column; gap:28px; }
+  h1 { margin:0; font-size:40px; line-height:1.15; letter-spacing:-0.02em; color:var(--blue); }
+  .lead { margin:8px 0 0; font-size:16px; color:#3D3D3D; max-width:680px; line-height:1.6; }
+  .bar { display:flex; flex-wrap:wrap; gap:10px; }
+  .pill { display:inline-flex; align-items:center; gap:8px; border:1px solid var(--line); border-radius:8px; padding:8px 12px; font-size:13px; font-weight:500; }
+  .dot { width:8px; height:8px; border-radius:999px; background:#BDBDBD; }
+  .dot.ok { background:#1DB954; } .dot.wait { background:#F5A623; } .dot.bad { background:#E5484D; }
+  .btn { display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:0 22px; border-radius:8px; font:700 15px Poppins, sans-serif; border:0; cursor:pointer; text-decoration:none; color:var(--ink); }
+  .btn.neon { background:var(--neon); }
+  .btn.ghost { background:#FFFFFF; border:1px solid var(--line); font-weight:600; }
+  .btn[disabled] { opacity:.45; cursor:not-allowed; }
+  .notice { border:1px solid var(--line); border-left:4px solid var(--blue); border-radius:8px; padding:14px 16px; font-size:14px; line-height:1.55; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
+  .grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:16px; }
+  .card { border:1px solid var(--line); border-radius:12px; padding:24px; display:flex; flex-direction:column; gap:14px; }
+  .card-top { display:flex; justify-content:space-between; align-items:center; }
+  .num { font-size:12px; font-weight:700; color:var(--muted); letter-spacing:.08em; }
+  .tag { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; border-radius:6px; padding:4px 8px; border:1px solid var(--line); color:var(--muted); }
+  .tag.ok { border-color:var(--blue); color:var(--blue); }
+  .tag.run { background:var(--neon); border-color:var(--neon); color:var(--ink); }
+  .tag.err { border-color:#E5484D; color:#E5484D; }
+  .card h2 { margin:0; font-size:20px; line-height:1.3; }
+  .mod { font-size:12px; font-weight:600; color:var(--blue); text-transform:uppercase; letter-spacing:.08em; }
+  .desc { margin:0; font-size:14px; line-height:1.6; color:#3D3D3D; }
+  .size { font-size:14px; font-weight:600; }
+  .progress { height:8px; border-radius:999px; background:#F0F0F0; overflow:hidden; }
+  .progress > div { height:100%; background:var(--blue); width:0; transition:width .4s ease; }
+  .pmeta { display:flex; justify-content:space-between; font-size:12px; color:var(--muted); gap:8px; }
+  details { font-size:13px; color:#3D3D3D; }
+  summary { cursor:pointer; font-weight:600; }
+  ul { margin:8px 0 0; padding-left:18px; line-height:1.7; }
+  .log { background:var(--soft); border:1px solid var(--line); border-radius:8px; padding:10px 12px; font:12px/1.6 ui-monospace, Menlo, monospace; color:#3D3D3D; white-space:pre-wrap; max-height:140px; overflow:auto; }
+  .err { color:#E5484D; font-size:13px; }
+  footer { font-size:12px; color:var(--muted); text-align:center; padding:0 24px 32px; }
+  @media (max-width:640px){ h1{font-size:28px} .grid{grid-template-columns:1fr} header{padding:0 16px} }
+</style>
+</head>
+<body>
+<header>
+  <span class="logo">Omnia<small>Lanzador de flujos</small></span>
+  <a id="open-comfy" class="btn neon" href="#" target="_blank" rel="noopener">Abrir ComfyUI</a>
+</header>
+<main>
+  <section>
+    <h1>Elige tu flujo de trabajo</h1>
+    <p class="lead">Instala con un clic los modelos y nodos que necesita cada flujo del curso. Todo se guarda en tu volumen: al apagar y volver a encender el pod, tus modelos, imágenes y flujos siguen aquí.</p>
+  </section>
+  <div class="bar">
+    <span class="pill"><span id="comfy-dot" class="dot"></span><span id="comfy-txt">Comprobando ComfyUI…</span></span>
+    <span class="pill"><span id="disk-dot" class="dot"></span><span id="disk-txt">Espacio…</span></span>
+    <span class="pill"><span id="vol-dot" class="dot"></span><span id="vol-txt">Almacenamiento…</span></span>
+  </div>
+  <div id="restart" class="notice" hidden>
+    <span>Se han instalado nodos nuevos. Reinicia ComfyUI para que aparezcan en tus flujos.</span>
+    <button class="btn ghost" id="restart-btn">Reiniciar ComfyUI</button>
+  </div>
+  <div id="grid" class="grid"></div>
+</main>
+<footer>Omnia · Tus archivos se guardan en <span id="ws">/workspace</span></footer>
+<script>
+const $ = (id) => document.getElementById(id);
+const gb = (b) => (b / 1e9).toFixed(1).replace('.', ',') + ' GB';
+let busy = {};
+
+function card(w) {
+  const j = w.job || {};
+  const running = j.state === 'running';
+  const tag = running ? '<span class="tag run">Instalando</span>'
+    : j.state === 'error' ? '<span class="tag err">Error</span>'
+    : w.installed ? '<span class="tag ok">Instalado</span>' : '<span class="tag">Sin instalar</span>';
+  const pct = running && j.total ? Math.min(100, Math.round(j.done / j.total * 100)) : (w.installed ? 100 : 0);
+  const btnLabel = running ? 'Instalando… ' + pct + ' %' : w.installed ? 'Comprobar de nuevo' : 'Instalar flujo';
+  const files = w.files.map(f => `<li>${f.ok ? '✓' : '·'} ${f.name} <span style="color:#9A9A9A">(${f.dir})</span></li>`).join('');
+  const nodes = w.nodes.map(n => `<li>${n}</li>`).join('');
+  return `<article class="card">
+    <div class="card-top"><span class="num">${w.n || ''}</span>${tag}</div>
+    <span class="mod">${w.module}</span>
+    <h2>${w.name}</h2>
+    <p class="desc">${w.description}</p>
+    <span class="size">Aprox. ${String(w.size_gb).replace('.', ',')} GB</span>
+    ${running || w.installed ? `<div class="progress"><div style="width:${pct}%"></div></div>
+      <div class="pmeta"><span>${running ? (j.file || 'Preparando…') : 'Todo descargado'}</span><span>${running && j.total ? gb(j.done) + ' de ' + gb(j.total) : ''}</span></div>` : ''}
+    ${j.error ? `<span class="err">${j.error}</span>` : ''}
+    <button class="btn ${w.installed && !running ? 'ghost' : 'neon'}" ${running ? 'disabled' : ''} onclick="install('${w.id}')">${btnLabel}</button>
+    <details><summary>Qué instala</summary><ul>${files}</ul><ul>${nodes}</ul></details>
+    ${w.log.length ? `<div class="log">${w.log.join('\n')}</div>` : ''}
+  </article>`;
+}
+
+async function refresh() {
+  try {
+    const s = await (await fetch('/api/status', { cache: 'no-store' })).json();
+    $('open-comfy').href = s.comfy_url;
+    $('comfy-dot').className = 'dot ' + (s.comfy_ready ? 'ok' : 'wait');
+    $('comfy-txt').textContent = s.comfy_ready ? 'ComfyUI listo' : 'ComfyUI arrancando…';
+    const low = s.disk.free_gb < 30;
+    $('disk-dot').className = 'dot ' + (low ? 'wait' : 'ok');
+    $('disk-txt').textContent = String(s.disk.free_gb).replace('.', ',') + ' GB libres de ' + String(s.disk.total_gb).replace('.', ',') + ' GB';
+    $('vol-dot').className = 'dot ' + (s.persistent ? 'ok' : 'bad');
+    $('vol-txt').textContent = s.persistent ? 'Almacenamiento persistente activo' : 'Sin volumen: se borrará al apagar';
+    $('ws').textContent = s.workspace;
+    $('restart').hidden = !s.needs_restart;
+    const open = [...document.querySelectorAll('#grid details')].map(d => d.open);
+    $('grid').innerHTML = s.workflows.map(card).join('');
+    document.querySelectorAll('#grid details').forEach((d, i) => { d.open = !!open[i]; });
+  } catch (e) { $('comfy-txt').textContent = 'Reconectando con el lanzador…'; }
+}
+
+async function install(id) {
+  await fetch('/api/install/' + id, { method: 'POST' });
+  refresh();
+}
+$('restart-btn').onclick = async () => {
+  $('restart-btn').disabled = true; $('restart-btn').textContent = 'Reiniciando…';
+  await fetch('/api/restart-comfy', { method: 'POST' });
+  setTimeout(() => { $('restart-btn').disabled = false; $('restart-btn').textContent = 'Reiniciar ComfyUI'; refresh(); }, 4000);
+};
+refresh();
+setInterval(refresh, 2000);
+</script>
+</body>
+</html>
