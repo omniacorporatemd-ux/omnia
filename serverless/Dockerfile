@@ -2,7 +2,11 @@
 # Parte del worker oficial de RunPod para ComfyUI y le añade los nodos
 # de los flujos de Omnia, en las mismas versiones que el instalador.
 # Los modelos NO van dentro: se leen del volumen de red del pod de Omnia.
-FROM runpod/worker-comfyui:5.11.0-base
+FROM runpod/worker-comfyui:5.10.0-base
+
+# ComfyUI actualizado (Krea 2 necesita una versión reciente, igual que en el pod)
+RUN cd /comfyui && git fetch --depth 1 origin master && git checkout -f FETCH_HEAD \
+    && uv pip install --python /opt/venv/bin/python -r requirements.txt
 
 # Nodos personalizados (commits fijados, igual que Omnia_model_installer)
 RUN set -e; cd /comfyui/custom_nodes; \
