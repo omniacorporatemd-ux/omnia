@@ -133,7 +133,10 @@ def install_node(job, node):
         env = dict(os.environ)
         if os.path.isfile(PIP_CONSTRAINT):
             env["PIP_CONSTRAINT"] = PIP_CONSTRAINT  # no tocar torch de la imagen
-        r = subprocess.run([py, "-m", "pip", "install", "-q", "-r", req], env=env,
+        cmd = [py, "-m", "pip", "install", "-q", "-r", req]
+        if node.get("extra_index"):
+            cmd += ["--extra-index-url", node["extra_index"]]
+        r = subprocess.run(cmd, env=env,
                            stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
         if r.returncode != 0:
             log(job, "Aviso: dependencias de %s con errores: %s" % (node["name"], r.stdout[-300:]))

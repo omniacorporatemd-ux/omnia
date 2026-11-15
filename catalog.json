@@ -43,16 +43,40 @@
      "dir": "sams",
      "size_gb": 0.38,
      "url": "https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth"
+    },
+    {
+     "name": "famegrid_spicy.safetensors",
+     "dir": "loras",
+     "size_gb": 1.56,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/famegrid_spicy.safetensors"
+    },
+    {
+     "name": "krea2-bloomgirls-realism-step00004000.safetensors",
+     "dir": "loras",
+     "size_gb": 0.47,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/krea2-bloomgirls-realism-step00004000.safetensors"
     }
    ],
    "nodes": [
     {
-     "name": "ComfyUI-Impact-Pack",
-     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+     "name": "comfyui-krea2edit",
+     "repo": "https://github.com/lbouaraba/comfyui-krea2edit"
+    },
+    {
+     "name": "ComfyUI_Comfyroll_CustomNodes",
+     "repo": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    },
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
     },
     {
      "name": "ComfyUI-Impact-Subpack",
      "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
+    },
+    {
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
     },
     {
      "name": "rgthree-comfy",
@@ -61,10 +85,6 @@
     {
      "name": "RES4LYF",
      "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
-    },
-    {
-     "name": "ComfyUI-KJNodes",
-     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
     }
    ]
   },
@@ -98,6 +118,36 @@
      "dir": "loras",
      "size_gb": 1.83,
      "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+    },
+    {
+     "name": "ass_v2_krea2_loraholic.safetensors",
+     "dir": "loras",
+     "size_gb": 0.05,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/ass_v2_krea2_loraholic.safetensors"
+    },
+    {
+     "name": "breast_size_v2_krea2_loraholic.safetensors",
+     "dir": "loras",
+     "size_gb": 0.04,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/breast_size_v2_krea2_loraholic.safetensors"
+    },
+    {
+     "name": "famegrid_spicy.safetensors",
+     "dir": "loras",
+     "size_gb": 1.56,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/famegrid_spicy.safetensors"
+    },
+    {
+     "name": "krea2-bloomgirls-realism-step00004000.safetensors",
+     "dir": "loras",
+     "size_gb": 0.47,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/krea2-bloomgirls-realism-step00004000.safetensors"
+    },
+    {
+     "name": "snofs_krea_v1_4.safetensors",
+     "dir": "loras",
+     "size_gb": 1.56,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/snofs_krea_v1_4.safetensors"
     }
    ],
    "nodes": [
@@ -110,12 +160,24 @@
      "repo": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     },
     {
-     "name": "RES4LYF",
-     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
-    },
-    {
      "name": "ComfyUI-KJNodes",
      "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    },
+    {
+     "name": "ComfyUI-Impact-Subpack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
+    },
+    {
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+     "name": "rgthree-comfy",
+     "repo": "https://github.com/rgthree/rgthree-comfy"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
     }
    ]
   },
@@ -149,6 +211,36 @@
      "dir": "loras",
      "size_gb": 1.83,
      "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+    },
+    {
+     "name": "ass_v2_krea2_loraholic.safetensors",
+     "dir": "loras",
+     "size_gb": 0.05,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/ass_v2_krea2_loraholic.safetensors"
+    },
+    {
+     "name": "breast_size_v2_krea2_loraholic.safetensors",
+     "dir": "loras",
+     "size_gb": 0.04,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/breast_size_v2_krea2_loraholic.safetensors"
+    },
+    {
+     "name": "famegrid_spicy.safetensors",
+     "dir": "loras",
+     "size_gb": 1.56,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/famegrid_spicy.safetensors"
+    },
+    {
+     "name": "krea2-bloomgirls-realism-step00004000.safetensors",
+     "dir": "loras",
+     "size_gb": 0.47,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/krea2-bloomgirls-realism-step00004000.safetensors"
+    },
+    {
+     "name": "snofs_krea_v1_4.safetensors",
+     "dir": "loras",
+     "size_gb": 1.56,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/snofs_krea_v1_4.safetensors"
     }
    ],
    "nodes": [
@@ -157,12 +249,28 @@
      "repo": "https://github.com/lbouaraba/comfyui-krea2edit"
     },
     {
-     "name": "RES4LYF",
-     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
+     "name": "ComfyUI_Comfyroll_CustomNodes",
+     "repo": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     },
     {
      "name": "ComfyUI-KJNodes",
      "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    },
+    {
+     "name": "ComfyUI-Impact-Subpack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
+    },
+    {
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+     "name": "rgthree-comfy",
+     "repo": "https://github.com/rgthree/rgthree-comfy"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
     }
    ]
   },
@@ -196,6 +304,36 @@
      "dir": "loras",
      "size_gb": 1.83,
      "url": "https://huggingface.co/conradlocke/krea2-identity-edit/resolve/main/krea2_identity_edit_v1_2.safetensors"
+    },
+    {
+     "name": "ass_v2_krea2_loraholic.safetensors",
+     "dir": "loras",
+     "size_gb": 0.05,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/ass_v2_krea2_loraholic.safetensors"
+    },
+    {
+     "name": "breast_size_v2_krea2_loraholic.safetensors",
+     "dir": "loras",
+     "size_gb": 0.04,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/breast_size_v2_krea2_loraholic.safetensors"
+    },
+    {
+     "name": "famegrid_spicy.safetensors",
+     "dir": "loras",
+     "size_gb": 1.56,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/famegrid_spicy.safetensors"
+    },
+    {
+     "name": "krea2-bloomgirls-realism-step00004000.safetensors",
+     "dir": "loras",
+     "size_gb": 0.47,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/krea2-bloomgirls-realism-step00004000.safetensors"
+    },
+    {
+     "name": "snofs_krea_v1_4.safetensors",
+     "dir": "loras",
+     "size_gb": 1.56,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/snofs_krea_v1_4.safetensors"
     }
    ],
    "nodes": [
@@ -208,12 +346,24 @@
      "repo": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     },
     {
-     "name": "RES4LYF",
-     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
-    },
-    {
      "name": "ComfyUI-KJNodes",
      "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    },
+    {
+     "name": "ComfyUI-Impact-Subpack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
+    },
+    {
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+     "name": "rgthree-comfy",
+     "repo": "https://github.com/rgthree/rgthree-comfy"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
     }
    ]
   },
@@ -241,12 +391,42 @@
      "dir": "vae",
      "size_gb": 0.25,
      "url": "https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors"
+    },
+    {
+     "name": "ass_v2_krea2_loraholic.safetensors",
+     "dir": "loras",
+     "size_gb": 0.05,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/ass_v2_krea2_loraholic.safetensors"
     }
    ],
    "nodes": [
     {
+     "name": "comfyui-krea2edit",
+     "repo": "https://github.com/lbouaraba/comfyui-krea2edit"
+    },
+    {
+     "name": "ComfyUI_Comfyroll_CustomNodes",
+     "repo": "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
+    },
+    {
      "name": "ComfyUI-KJNodes",
      "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    },
+    {
+     "name": "ComfyUI-Impact-Subpack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Subpack"
+    },
+    {
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+     "name": "rgthree-comfy",
+     "repo": "https://github.com/rgthree/rgthree-comfy"
+    },
+    {
+     "name": "RES4LYF",
+     "repo": "https://github.com/ClownsharkBatwing/RES4LYF"
     }
    ]
   },
@@ -298,36 +478,47 @@
      "dir": "loras",
      "size_gb": 0.74,
      "url": "https://huggingface.co/lightx2v/Wan2.2-Distill-Loras/resolve/main/wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors"
+    },
+    {
+     "name": "slop_twerk_LowNoise_merged3_7_v2.safetensors",
+     "dir": "loras",
+     "size_gb": 0.31,
+     "url": "https://huggingface.co/gravedigga/loras/resolve/main/slop_twerk_LowNoise_merged3_7_v2.safetensors"
     }
    ],
    "nodes": [
     {
-     "name": "ComfyUI-KJNodes",
-     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
-    },
-    {
-     "name": "ComfyUI-Impact-Pack",
-     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+     "name": "ComfyUI-SAM3",
+     "repo": "https://github.com/PozzettiAndrea/ComfyUI-SAM3"
     },
     {
      "name": "ComfyUI-VideoHelperSuite",
      "repo": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     },
     {
-     "name": "ComfyUI-Easy-Use",
-     "repo": "https://github.com/yolain/ComfyUI-Easy-Use"
+     "name": "ComfyUI-Logic",
+     "repo": "https://github.com/theUpsider/ComfyUI-Logic"
     },
     {
-     "name": "ComfyUI-Logic",
-     "repo": "https://github.com/theUndefined/ComfyUI-Logic"
+     "name": "Nvidia_RTX_Nodes_ComfyUI",
+     "repo": "https://github.com/Comfy-Org/Nvidia_RTX_Nodes_ComfyUI",
+     "extra_index": "https://pypi.nvidia.com/"
+    },
+    {
+     "name": "ComfyUI-Easy-Use",
+     "repo": "https://github.com/yolain/ComfyUI-Easy-Use"
     },
     {
      "name": "ComfyUI-Custom-Scripts",
      "repo": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     },
     {
-     "name": "ComfyUI_Nvidia_VFX_Nodes",
-     "repo": "https://github.com/Comfy-Org/ComfyUI_Nvidia_VFX_Nodes"
+     "name": "ComfyUI-Impact-Pack",
+     "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
+    },
+    {
+     "name": "ComfyUI-KJNodes",
+     "repo": "https://github.com/kijai/ComfyUI-KJNodes"
     }
    ]
   },
@@ -421,36 +612,48 @@
      "repo": "https://github.com/kijai/ComfyUI-WanAnimatePreprocess"
     },
     {
-     "name": "ComfyUI-segment-anything-2",
-     "repo": "https://github.com/kijai/ComfyUI-segment-anything-2"
-    },
-    {
      "name": "ComfyUI-KJNodes",
      "repo": "https://github.com/kijai/ComfyUI-KJNodes"
+    },
+    {
+     "name": "ComfyUI-segment-anything-2",
+     "repo": "https://github.com/kijai/ComfyUI-segment-anything-2"
     },
     {
      "name": "ComfyUI-VideoHelperSuite",
      "repo": "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     },
     {
-     "name": "ComfyUI-Easy-Use",
-     "repo": "https://github.com/yolain/ComfyUI-Easy-Use"
-    },
-    {
      "name": "ComfyUI-Frame-Interpolation",
      "repo": "https://github.com/Fannovel16/ComfyUI-Frame-Interpolation"
+    },
+    {
+     "name": "ComfyUI-Custom-Scripts",
+     "repo": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
     },
     {
      "name": "rgthree-comfy",
      "repo": "https://github.com/rgthree/rgthree-comfy"
     },
     {
+     "name": "ComfyUI-Easy-Use",
+     "repo": "https://github.com/yolain/ComfyUI-Easy-Use"
+    },
+    {
      "name": "ComfyMath",
      "repo": "https://github.com/evanspearman/ComfyMath"
     },
     {
-     "name": "ComfyUI-Custom-Scripts",
-     "repo": "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+     "name": "comfyui-propost",
+     "repo": "https://github.com/digitaljohn/comfyui-propost"
+    },
+    {
+     "name": "CRT-Nodes",
+     "repo": "https://github.com/PGCRT/CRT-Nodes"
+    },
+    {
+     "name": "ComfyUI_Swwan",
+     "repo": "https://github.com/aining2022/ComfyUI_Swwan"
     }
    ]
   }
